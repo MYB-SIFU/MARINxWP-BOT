@@ -241,7 +241,7 @@ Full command list available after deployment.
 
 ## 📄 License
 
-MIT © 2024 SIFAT
+MIT © 2026 SIFAT
 
 ---
 
