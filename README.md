@@ -25,45 +25,7 @@
 
 ## Project Structure
 
-```
-MARINxWP-BOT/
-├── app.js                    # Entry point
-├── src/
-│   ├── core/
-│   │   ├── boot.js           # Bot initialization & client setup
-│   │   └── guard.js          # Middleware & permission handler
-│   ├── handlers/
-│   │   ├── index.js          # Event aggregator
-│   │   ├── onReady.js        # Bot ready event
-│   │   ├── onMessage.js      # Message handler (anti-spam, AFK, etc.)
-│   │   ├── onMember.js       # Welcome / goodbye handler
-│   │   └── onCall.js         # Anti-call handler
-│   ├── utils/
-│   │   ├── index.js          # Utils aggregator
-│   │   ├── api.js            # External API helper
-│   │   ├── command.js        # Command utilities
-│   │   ├── format.js         # Text formatting helpers
-│   │   └── listing.js        # Dynamic list generator
-│   └── modules/
-│       ├── ai/               # AI commands (chat, generate, misc)
-│       ├── media/            # Media commands (converter, downloader)
-│       ├── game/             # Game commands
-│       ├── group/            # Group management commands
-│       ├── info/             # Information commands
-│       ├── core/             # Core commands (menu)
-│       ├── maker/            # Content maker commands
-│       ├── misc/             # Miscellaneous commands
-│       ├── admin/            # Owner/admin commands
-│       ├── profile/          # User profile commands
-│       ├── search/           # Search commands
-│       └── toolkit/          # Tool commands
-├── config/
-│   ├── default.json          # Default configuration template
-│   └── settings.json         # Active configuration (gitignored)
-├── Dockerfile                # Docker deployment
-├── render.yaml               # Render deployment config
-└── railway.json              # Railway deployment config
-```
+
 
 ---
 
