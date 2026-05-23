@@ -1,0 +1,10 @@
+node_modules/
+session/
+session.json
+data/
+config/settings.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.env.local
+*.log

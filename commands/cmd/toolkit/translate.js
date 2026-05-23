@@ -1,0 +1,33 @@
+module.exports = {
+    name: "translate",
+    aliases: ["tr"],
+    category: "toolkit",
+    permissions: {
+        coin: 10
+    },
+    code: async (ctx) => {
+        const langCode = ctx.args[0]?.length === 2 ? ctx.args[0] : "en";
+        const input = ctx.text?.startsWith(`${langCode} `) ? ctx.text.slice(langCode.length + 1) : ctx.quoted?.body;
+
+        if (!input)
+            return await ctx.reply(
+                `${tools.msg.generateInstruction(["send"], ["text"])}\n` +
+                `${tools.msg.generateCmdExample(ctx.used, "en hello, world!")}\n` +
+                tools.msg.generateNotes([
+                    "Gunakan kode bahasa 2 huruf, periksa daftar lengkapnya di Google. (contoh: en, id, ja, ar)"
+                ])
+            );
+
+        try {
+            const apiUrl = tools.api.createUrl("delirius", "/tools/translate", {
+                text: input,
+                language: langCode
+            });
+            const result = (await axios.get(apiUrl)).data.data;
+
+            await ctx.reply(result);
+        } catch (error) {
+            await tools.cmd.handleError(ctx, error, true);
+        }
+    }
+};

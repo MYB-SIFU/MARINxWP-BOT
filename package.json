@@ -1,0 +1,40 @@
+{
+  "name": "MARINxWP",
+  "version": "1.0.0",
+  "description": "Advanced WhatsApp Bot by SIFAT",
+  "main": "marin.js",
+  "directories": {
+    "commands": "commands/cmd",
+    "events": "commands/event",
+    "handlers": "src/handlers",
+    "utils": "src/utils"
+  },
+  "scripts": {
+    "start": "node marin.js",
+    "dev": "node marin.js",
+    "setup": "cp config/default.json config/settings.json && npm install"
+  },
+  "keywords": [
+    "whatsapp-bot",
+    "MARINxWP",
+    "SIFAT"
+  ],
+  "author": "SIFAT",
+  "license": "MIT",
+  "homepage": "https://github.com/MYB-SIFU/MARINxWP-BOT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MYB-SIFU/MARINxWP-BOT"
+  },
+  "dependencies": {
+    "@ginkohub/speedtest-js": "^0.0.2",
+    "@itsreimau/gktw": "github:itsreimau/gktw",
+    "axios": "^1.16.1",
+    "axios-retry": "^4.5.0",
+    "cfonts": "^3.3.1",
+    "jimp": "^1.6.1",
+    "link-preview-js": "^4.0.3",
+    "moment-timezone": "^0.6.2",
+    "wa-sticker-formatter": "^4.4.4"
+  }
+}

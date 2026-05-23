@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: MARINxWP
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: npm install
+    startCommand: node marin.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /
+    autoDeploy: true

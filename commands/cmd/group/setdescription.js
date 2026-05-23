@@ -1,0 +1,27 @@
+module.exports = {
+    name: "setdescription",
+    aliases: ["setdesc"],
+    category: "group",
+    permissions: {
+        admin: true,
+        botAdmin: true,
+        group: true
+    },
+    code: async (ctx) => {
+        const input = ctx.text || ctx.quoted?.body;
+
+        if (!input)
+            return await ctx.reply(
+                `${tools.msg.generateInstruction(["send"], ["text"])}\n` +
+                tools.msg.generateCmdExample(ctx.used, "by maybe-sifu")
+            );
+
+        try {
+            await ctx.group().updateDescription(input);
+
+            await ctx.reply(tools.msg.info("Successfully mengubah deskripsi grup!"));
+        } catch (error) {
+            await tools.cmd.handleError(ctx, error);
+        }
+    }
+};

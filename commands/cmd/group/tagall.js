@@ -1,0 +1,29 @@
+module.exports = {
+    name: "tagall",
+    category: "group",
+    permissions: {
+        admin: true,
+        group: true
+    },
+    code: async (ctx) => {
+        const input = ctx.text || ctx.quoted?.body;
+
+        try {
+            const members = await ctx.group().members();
+            const mentions = members.map(member => ({
+                tag: `@${ctx.getId(member.id)}`,
+                mention: member.id
+            }));
+
+            const resultText = mentions.map(mention => mention.tag).join(" ");
+            await ctx.reply({
+                text: `${input || `>ᴗ< ${formatter.italic("Halo, Dunia!")}`}\n` +
+                    `${"\u200E".repeat(4001)}\n` +
+                    resultText,
+                mentions: mentions.map(mention => mention.mention)
+            });
+        } catch (error) {
+            await tools.cmd.handleError(ctx, error);
+        }
+    }
+};

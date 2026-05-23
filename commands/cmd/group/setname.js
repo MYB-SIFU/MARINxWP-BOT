@@ -1,0 +1,26 @@
+module.exports = {
+    name: "setname",
+    category: "group",
+    permissions: {
+        admin: true,
+        botAdmin: true,
+        group: true
+    },
+    code: async (ctx) => {
+        const input = ctx.text;
+
+        if (!input)
+            return await ctx.reply(
+                `${tools.msg.generateInstruction(["send"], ["text"])}\n` +
+                tools.msg.generateCmdExample(ctx.used, "MARINxWP-BOT")
+            );
+
+        try {
+            await ctx.group().updateSubject(input);
+
+            await ctx.reply(tools.msg.info("Successfully mengubah nama grup!"));
+        } catch (error) {
+            await tools.cmd.handleError(ctx, error);
+        }
+    }
+};

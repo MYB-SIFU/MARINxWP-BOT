@@ -1,0 +1,55 @@
+module.exports = {
+    name: "osettext",
+    aliases: ["osettxt"],
+    category: "admin",
+    permissions: {
+        owner: true
+    },
+    code: async (ctx) => {
+        const key = ctx.args[0];
+        const text = ctx.text ? (ctx.text.startsWith(`${key} `) ? ctx.text.slice(key.length + 1) : ctx.text) : ctx.quoted?.body;
+
+        if (key?.toLowerCase() === "list") {
+            const listText = await tools.list.get("osettext");
+            return await ctx.reply(listText);
+        }
+
+        if (!key || !text)
+            return await ctx.reply(
+                `${tools.msg.generateInstruction(["send"], ["text"])}\n` +
+                `${tools.msg.generateCmdExample(ctx.used, "price $1 untuk sewa bot 1 bulan")}\n` +
+                tools.msg.generateNotes([
+                    `Type ${formatter.inlineCode(`${ctx.used.prefix + ctx.used.command} list`)} to see the list.`,
+                    `Gunakan ${formatter.inlineCode("delete")} sebagai teks untuk menghapus teks yang disimpan sebelumnya.`
+                ])
+            );
+
+        try {
+            let setKey;
+
+            switch (key.toLowerCase()) {
+                case "donate":
+                case "price":
+                case "qris":
+                    setKey = key.toLowerCase();
+                    break;
+                default:
+                    return await ctx.reply(tools.msg.info(`Teks ${formatter.inlineCode(key)} not valid!`));
+            }
+
+            const botDb = ctx.db.bot;
+
+            if (text.toLowerCase() === "delete") {
+                delete botDb?.text[setKey];
+                botDb.save();
+                return await ctx.reply(tools.msg.info(`Pesan untuk teks ${formatter.inlineCode(key)} successfully dihapus!`));
+            }
+
+            (botDb.text ||= {})[setKey] = text;
+            botDb.save();
+            await ctx.reply(tools.msg.info(`Pesan untuk teks ${formatter.inlineCode(key)} successfully disimpan!`));
+        } catch (error) {
+            await tools.cmd.handleError(ctx, error);
+        }
+    }
+};

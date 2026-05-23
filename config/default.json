@@ -1,0 +1,69 @@
+{
+  "bot": {
+    "name": "MARINxWP",
+    "phoneNumber": "",
+    "thumbnail": "https://repository-images.githubusercontent.com/753096396/3f4b7686-0f1d-43f2-8293-2ae1b4487220",
+    "groupJid": ""
+  },
+  "msg": {
+    "admin": "This command can only be used by group admins!",
+    "banned": "You have been banned!",
+    "botAdmin": "Bot is not an admin of this group!",
+    "botGroupMembership": "You have not joined the bot's group!",
+    "coin": "You don't have enough coins!",
+    "cooldown": "This command is on cooldown, please wait...",
+    "gamerestrict": "This group has restricted game commands!",
+    "group": "This command can only be used in groups!",
+    "groupSewa": "Bot is inactive because this group has not subscribed!",
+    "owner": "This command can only be used by the owner!",
+    "premium": "You are not a premium user!",
+    "private": "This command can only be used in private chat!",
+    "privatePremiumOnly": "Using the bot in private chat is for premium users only.",
+    "restrict": "This command has been restricted!",
+    "unavailableAtNight": "Bot is unavailable from midnight to 6am! Please come back later.",
+    "footer": "Developed by SIFAT with ♡",
+    "wait": "Please wait...",
+    "notFound": "Nothing found! Please try again later.",
+    "urlInvalid": "Invalid URL!"
+  },
+  "owner": {
+    "name": "SIFAT",
+    "organization": "MARINxWP",
+    "id": "62123456789",
+    "report": true,
+    "co": [
+      {
+        "name": "SIFAT Jr.",
+        "organization": "MARINxWP",
+        "id": "62987654321",
+        "report": false
+      }
+    ]
+  },
+  "sticker": {
+    "packname": "MARINxWP",
+    "author": "SIFAT <github.com/MYB-SIFU>"
+  },
+  "system": {
+    "alwaysOnline": true,
+    "antiBug": true,
+    "antiCall": true,
+    "autoRead": true,
+    "autoTypingOnCmd": true,
+    "cooldown": 10000,
+    "maxListeners": 50,
+    "port": 5000,
+    "privatePremiumOnly": false,
+    "restrict": false,
+    "requireBotGroupMembership": false,
+    "requireGroupSewa": false,
+    "selfReply": true,
+    "timeZone": "Asia/Dhaka",
+    "unavailableAtNight": false,
+    "useCoin": true,
+    "usePairingCode": false,
+    "customPairingCode": "MARINXWP",
+    "useStore": false,
+    "useServer": true
+  }
+}
